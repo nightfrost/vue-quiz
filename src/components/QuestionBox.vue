@@ -7,7 +7,7 @@
 
       <b-list-group>
         <b-list-group-item
-          v-for="(answer, index) in answers"
+          v-for="(answer, index) in shuffledAnswers"
           :key="index"
           @click="selectAnswer(index)"
           :class="answerClass(index)"
@@ -55,7 +55,6 @@ export default {
   methods: {
     selectAnswer(index) {
       this.selectedIndex = index;
-      console.log(index);
     },
     submitAnswer() {
       let isCorrect = false;
@@ -63,10 +62,9 @@ export default {
       if (this.selectedIndex === this.correctIndex) {
         isCorrect = true;
       }
-
       this.answered = true;
-
-      this.increment(isCorrect);
+      const selectedAnswer = this.shuffledAnswers[this.selectedIndex];
+      this.increment(isCorrect, selectedAnswer);
     },
     answerClass(index) {
       let answerClass = "";

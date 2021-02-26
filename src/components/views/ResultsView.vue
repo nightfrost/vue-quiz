@@ -6,6 +6,10 @@
     ></Header>
     <h1>Results</h1>
     {{ answers.numTotal }}
+    <div v-for="question in questions" v-bind:key="question.id">
+      <p>{{question.selectedAnswer}}</p>
+      <p>{{question.correct_answer}}</p>
+    </div>
   </div>
 </template>
 
@@ -16,6 +20,7 @@ export default {
   data() {
     return {
       answers: this.$route.params.answers,
+      questions: this.$route.params.questions
     };
   },
   components: {

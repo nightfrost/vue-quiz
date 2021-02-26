@@ -36,13 +36,15 @@ export default {
     next() {
       this.index++;
       if(this.index === this.questions.length){
-          this.$router.push({name: 'results', params: {answers:{numTotal: this.numTotal, numCorrect: this.numCorrect }}})
+          this.$router.push({name: 'results', params: {questions :this.questions , answers:{numTotal: this.numTotal, numCorrect: this.numCorrect }}})
       }
     },
-    increment(isCorrect) {
+    increment(isCorrect, selectedAnswer) {
       if (isCorrect) {
         this.numCorrect++;
       }
+      this.questions[this.index].selectedAnswer = selectedAnswer;
+      this.questions[this.index].isCorrect = isCorrect;
       this.numTotal++;
     },
   },
