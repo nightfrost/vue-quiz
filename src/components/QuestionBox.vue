@@ -61,7 +61,7 @@ export default {
       let isCorrect = false;
 
       if (this.selectedIndex === this.correctIndex) {
-        this.isCorrect = true;
+        isCorrect = true;
       }
 
       this.answered = true;
