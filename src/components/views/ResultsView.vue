@@ -1,22 +1,28 @@
 <template>
   <div id="app">
-  <h1>Results</h1>
-  {{answers.numTotal}}
+    <Header
+      :numCorrect="answers.numCorrect"
+      :numTotal="answers.numTotal"
+    ></Header>
+    <h1>Results</h1>
+    {{ answers.numTotal }}
   </div>
 </template>
 
 <script>
-
+import Header from "../Header.vue";
 export default {
   name: "ResultsView",
-   data() {
+  data() {
     return {
       answers: this.$route.params.answers,
     };
-  }
+  },
+  components: {
+    Header,
+  },
 };
 </script>
 
 <style>
-
 </style>
