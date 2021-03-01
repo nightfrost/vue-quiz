@@ -7,7 +7,7 @@
     <h1>Results</h1>
     <h2> You guessed {{answers.numCorrect}} correct out of {{ answers.numTotal }} questions</h2>
     <router-link to="/quiz" style="font-size: 30px">Play again</router-link>
-    <QuestionResult v-for="question in questions" v-bind:key="question.id" v-bind:question="question" :currentQuestion="question" />
+    <QuestionResult v-for="question in questions" v-bind:key="question.id" v-bind:question="question"/>
   </div>
 </template>
 
