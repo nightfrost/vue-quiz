@@ -3,18 +3,17 @@
     <Header
       :numCorrect="answers.numCorrect"
       :numTotal="answers.numTotal"
-    ></Header>
+    />
     <h1>Results</h1>
-    {{ answers.numTotal }}
-    <div v-for="question in questions" v-bind:key="question.id">
-      <p>{{question.selectedAnswer}}</p>
-      <p>{{question.correct_answer}}</p>
-    </div>
+    <h2> You guessed {{answers.numCorrect}} correct out of {{ answers.numTotal }} questions</h2>
+    <router-link to="/quiz" style="font-size: 30px">Play again</router-link>
+    <QuestionResult v-for="question in questions" v-bind:key="question.id" v-bind:question="question" :currentQuestion="question" />
   </div>
 </template>
 
 <script>
 import Header from "../Header.vue";
+import QuestionResult from "../QuestionResult.vue"
 export default {
   name: "ResultsView",
   data() {
@@ -25,6 +24,7 @@ export default {
   },
   components: {
     Header,
+    QuestionResult
   },
 };
 </script>

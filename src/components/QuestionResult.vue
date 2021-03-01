@@ -1,7 +1,9 @@
 <template>
   <div>
-    <b-jumbotron>
-        {{currentQuestion.question}}
+    <b-jumbotron :class="[question.isCorrect ? 'correct' : 'incorrect'] ">
+        <h3>{{question.question}}</h3>
+        <p>You answered: {{question.selectedAnswer}}</p>
+        <p>The correct answer is: {{question.correct_answer}}</p>
     </b-jumbotron>
   </div>
 </template>
@@ -10,8 +12,7 @@
 
 export default {
   props: {
-    currentQuestion: Object,
-  },
+    ['question']: Object},
   data() {
     return {
 
@@ -25,21 +26,7 @@ export default {
 </script>
 
 <style scoped>
-.list-group {
-  margin-bottom: 15px;
-}
-.list-group-item:hover {
-  background: #eee;
-  cursor: pointer;
-}
-
-.btn {
-  margin: 0 5px;
-}
-
-.selected {
-  background-color: lightblue;
-}
+p{font-size: 20px; padding: 5px}
 
 .correct {
   background-color: lightgreen;
