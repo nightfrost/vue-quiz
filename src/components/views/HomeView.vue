@@ -1,8 +1,14 @@
 <template>
   <div id="app">
     <Header :numCorrect="numCorrect" :numTotal="numTotal"></Header>
-    <h1>Home</h1>
-    <router-link to="/quiz">Start quiz</router-link>
+    <h1 class="center">Welcome to the fancy quiz app!</h1>
+    <h3>
+      You will be guided through 10 questions, where you will have multiple
+      answers available.
+    </h3>
+    <div class="center">
+      <router-link class="btn btn-primary" to="/quiz">Start quiz</router-link>
+    </div>
   </div>
 </template>
 
@@ -22,5 +28,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+body {
+  background-color: blue;
+}
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
 </style>
