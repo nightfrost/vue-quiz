@@ -7,7 +7,7 @@
       answers available.
     </h3>
     <div class="center">
-      <router-link class="btn btn-primary" to="/quiz">Start quiz</router-link>
+      <router-link class="btn btn-primary btn-lg" to="/quiz">Start quiz</router-link>
     </div>
   </div>
 </template>

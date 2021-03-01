@@ -1,10 +1,8 @@
 <template>
   <div class="question-box-container">
-    <b-jumbotron>
+    <b-jumbotron class="shadow">
       <template #lead> {{ currentQuestion.question }} </template>
-
       <hr class="my-4" />
-
       <b-list-group>
         <b-list-group-item
           v-for="(answer, index) in shuffledAnswers"
@@ -14,18 +12,17 @@
           >{{ answer }}</b-list-group-item
         >
       </b-list-group>
-
       <b-button
+        class="btn-lg"
         variant="primary"
         @click="submitAnswer"
         :disabled="selectedIndex === null || answered"
         >Submit</b-button
       >
-      <b-button @click="next" variant="success" href="#">Next</b-button>
+      <b-button  class="btn-lg" @click="next" variant="success" href="#">Next</b-button>
     </b-jumbotron>
   </div>
 </template>
-
 <script>
 import _ from "lodash";
 

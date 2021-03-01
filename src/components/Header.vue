@@ -12,6 +12,3 @@ export default {
   props: ["numCorrect", "numTotal"],
 };
 </script>
-
-<style>
-</style>

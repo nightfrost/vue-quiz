@@ -14,7 +14,7 @@ import ResultsView from "./components/views/ResultsView.vue";
 const routes = [
   { path: "/", component: HomeView },
   { path: "/quiz", component: QuestionView },
-  { path: "/results", name: "results", component: ResultsView, props: true },
+  { path: "/results", name: "results", component: ResultsView },
 ];
 
 Vue.use(VueRouter);

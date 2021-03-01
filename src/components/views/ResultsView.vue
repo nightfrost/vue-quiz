@@ -6,14 +6,14 @@
     />
     <h1>Results</h1>
     <h2> You guessed {{answers.numCorrect}} correct out of {{ answers.numTotal }} questions</h2>
-    <router-link to="/quiz" style="font-size: 30px">Play again</router-link>
-    <QuestionResult v-for="question in questions" v-bind:key="question.id" v-bind:question="question"/>
+    <router-link style="margin: 20px" to="/quiz" class="btn btn-primary btn-lg">Play again</router-link>
+    <ResultBox v-for="question in questions" v-bind:key="question.id" v-bind:question="question"/>
   </div>
 </template>
 
 <script>
 import Header from "../Header.vue";
-import QuestionResult from "../QuestionResult.vue"
+import ResultBox from "../ResultBox.vue"
 export default {
   name: "ResultsView",
   data() {
@@ -24,10 +24,7 @@ export default {
   },
   components: {
     Header,
-    QuestionResult
+    ResultBox
   },
 };
 </script>
-
-<style>
-</style>
