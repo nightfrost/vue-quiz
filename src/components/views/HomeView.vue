@@ -1,13 +1,16 @@
+<!-- Component representing the homepage --> 
 <template>
   <div id="app">
-    <Header :numCorrect="numCorrect" :numTotal="numTotal"></Header>
+    <Header :numCorrect="numCorrect" :numTotal="numTotal" />
     <h1 class="center">Welcome to the fancy quiz app!</h1>
     <h3>
       You will be guided through 10 questions, where you will have multiple
       answers available.
     </h3>
     <div class="center">
-      <router-link class="btn btn-primary btn-lg" to="/quiz">Start quiz</router-link>
+      <router-link class="btn btn-primary btn-lg" to="/quiz"
+        >Start quiz</router-link
+      >
     </div>
   </div>
 </template>

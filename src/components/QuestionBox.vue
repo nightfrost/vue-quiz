@@ -1,3 +1,4 @@
+<!-- Component for the question box. Contains logic for displaying and answering questions. --> 
 <template>
   <div class="question-box-container">
     <b-jumbotron class="shadow">
@@ -19,7 +20,9 @@
         :disabled="selectedIndex === null || answered"
         >Submit</b-button
       >
-      <b-button  class="btn-lg" @click="next" variant="success" href="#">Next</b-button>
+      <b-button class="btn-lg" @click="next" variant="success" href="#"
+        >Next</b-button
+      >
     </b-jumbotron>
   </div>
 </template>
@@ -53,9 +56,11 @@ export default {
     selectAnswer(index) {
       this.selectedIndex = index;
     },
+    /**
+     * Checks the submitted answer. Calls the increment function from props
+     */
     submitAnswer() {
       let isCorrect = false;
-
       if (this.selectedIndex === this.correctIndex) {
         isCorrect = true;
       }
@@ -63,9 +68,12 @@ export default {
       const selectedAnswer = this.shuffledAnswers[this.selectedIndex];
       this.increment(isCorrect, selectedAnswer);
     },
+
+    /**
+     * Chooses the CSS class of the selected answer
+     */
     answerClass(index) {
       let answerClass = "";
-
       if (!this.answered && this.selectedIndex === index) {
         answerClass = "selected";
       } else if (this.answered && this.correctIndex === index) {
@@ -79,18 +87,20 @@ export default {
       }
       return answerClass;
     },
+    /**
+     * Shuffles the answers to give variety in the quiz
+     */
     shuffleAnswers() {
-      let answers = [
-        ...this.currentQuestion.incorrect_answers,
-        this.currentQuestion.correct_answer,
-      ];
-      this.shuffledAnswers = _.shuffle(answers);
+      this.shuffledAnswers = _.shuffle(this.answers);
       this.correctIndex = this.shuffledAnswers.indexOf(
         this.currentQuestion.correct_answer
       );
     },
   },
   computed: {
+    /**
+     * Assembles the answers array
+     */
     answers() {
       let answers = [...this.currentQuestion.incorrect_answers];
       answers.push(this.currentQuestion.correct_answer);

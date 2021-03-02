@@ -1,15 +1,16 @@
+<!--  Component representing the quiz page --> 
 <template>
   <div id="app">
-<Header :numCorrect="numCorrect" :numTotal="numTotal"></Header>
+    <Header :numCorrect="numCorrect" :numTotal="numTotal" />
     <b-container class="bv-example-row">
       <b-row>
-        <b-col  sm="12" offset="0">
+        <b-col sm="12" offset="0">
           <QuestionBox
             v-if="questions.length"
             :currentQuestion="questions[index]"
             :next="next"
             :increment="increment"
-          ></QuestionBox>
+          />
         </b-col>
       </b-row>
     </b-container>
@@ -33,12 +34,24 @@ export default {
     };
   },
   methods: {
+    /**
+     * Behaviour for clicking next question. If there are no more questions, routerpush to ResultsView along with the questions state.
+     */
     next() {
       this.index++;
-      if(this.index === this.questions.length){
-          this.$router.push({name: 'results', params: {questions :this.questions , answers:{numTotal: this.numTotal, numCorrect: this.numCorrect }}})
+      if (this.index === this.questions.length) {
+        this.$router.push({
+          name: "results",
+          params: {
+            questions: this.questions,
+            answers: { numTotal: this.numTotal, numCorrect: this.numCorrect },
+          },
+        });
       }
     },
+    /**
+     * Increments the question and correct answer count. Also saves the users answer and whether the input was correct.
+     */
     increment(isCorrect, selectedAnswer) {
       if (isCorrect) {
         this.numCorrect++;
