@@ -1,6 +1,8 @@
 # vue-quiz
 Small quiz application to familiarize us with the Vue framework
 
+Made by Lucas Due and Dan Tomicic
+
 ## Features
  - 10 questions fed to you one by one from OpenTriviaDB
  - Instant feedback upon answering
